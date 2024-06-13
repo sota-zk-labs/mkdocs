@@ -3,6 +3,7 @@ services:
     image: "sota-zk-docs"
     build:
       context: .
+    restart: "always"
     ports:
       - "0.0.0.0:8000:8000"
     container_name: "sota-zk-docs"

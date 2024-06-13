@@ -2,7 +2,10 @@ site_name: SotaZK Labs docs
 
 theme:
   name: material
-
+  palette:
+    scheme: dracula # This is how to enables the Dracula theme for dark. For light, it will use default Material with some tweaks.
+    primary: deep purple # Primary colors
+    accent: deep purple # accent color
   features:
     - search.suggest
     - search.highlight
@@ -39,9 +42,14 @@ markdown_extensions:
   - attr_list
   - abbr
   - pymdownx.tabbed
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: diagram
+          class: diagram
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.arithmatex:
       generic: true
+      block_tag: 'pre' # We wrap block math in `<pre>` to avoid issues with MkDocs minify HTML plugin: https://github.com/byrnereese/mkdocs-minify-plugin
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.keys
@@ -60,12 +68,14 @@ markdown_extensions:
 plugins:
   - search
   - open-in-new-tab
-
+  - mkdocs_pymdownx_material_extras
 extra_javascript:
+  - assets/extra.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  - https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js
 
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css
