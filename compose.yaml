@@ -5,10 +5,14 @@ services:
       context: .
     restart: "always"
     ports:
-      - "0.0.0.0:8000:8000"
+      - "0.0.0.0:8080:8080"
     container_name: "sota-zk-docs"
-    working_dir: /workspace/
-    volumes:
-      - type: bind
-        source: /home/sotatek/son/mkdocs
-        target: /workspace
+#    command:
+#      - /bin/sh
+#      - -c
+#      - "sleep infinity"
+#    working_dir: /workspace/
+#    volumes:
+#      - type: bind
+#        source: /home/sotatek/son/mkdocs
+#        target: /workspace
