@@ -1,21 +1,21 @@
 window.MathJax = {
     tex: {
-      inlineMath: [ ["\\(","\\)"], ['$', '$'] ],
-      displayMath: [ ["\\[","\\]"], ['$$', '$$'] ],
-      tags: 'ams'
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['gensymb']}
     },
     options: {
-      ignoreHtmlClass: ".*|",
-      processHtmlClass: "arithmatex"
-    }
-  };
-document$.subscribe(({ body }) => { 
-  renderMathInElement(body, {
-    delimiters: [
-      { left: "$$",  right: "$$",  display: true },
-      { left: "$",   right: "$",   display: false },
-      { left: "\\(", right: "\\)", display: false },
-      { left: "\\[", right: "\\]", display: true }
-    ],
-  })
+        ignoreHtmlClass: ".*|",
+        processHtmlClass: "arithmatex"
+    },
+    loader: {load: ['[tex]/gensymb']},
+};
+
+document$.subscribe(() => {
+    MathJax.startup.output.clearCache()
+    MathJax.typesetClear()
+    MathJax.texReset()
+    MathJax.typesetPromise()
 })

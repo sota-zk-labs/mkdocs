@@ -94,7 +94,7 @@ plugins:
   - mkdocs_pymdownx_material_extras
 
 extra_javascript:
-  - assets/extra.js
+  - javascripts/extra.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://unpkg.com/katex@0/dist/katex.min.js

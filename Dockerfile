@@ -10,7 +10,7 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt --no-cache-dir
 COPY docs /mkdocs/docs
 COPY mkdocs.yml /mkdocs/mkdocs.yml
-COPY extra.js /mkdocs/assets/extra.js
+COPY extra.js /mkdocs/docs/javascripts/extra.js
 RUN mkdocs build
 
 FROM bitnami/nginx:1.19
