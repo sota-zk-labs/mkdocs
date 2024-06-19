@@ -3,9 +3,33 @@ site_name: SotaZK Labs docs
 theme:
   name: material
   palette:
-    scheme: dracula # This is how to enables the Dracula theme for dark. For light, it will use default Material with some tweaks.
-    primary: deep purple # Primary colors
-    accent: deep purple # accent color
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: deep purple # Primary colors
+      accent: deep purple # accent color
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple # Primary colors
+      accent: deep purple # accent color
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: dracula
+      primary: deep purple # Primary colors
+      accent: deep purple # accent color
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
   features:
     - search.suggest
     - search.highlight
@@ -67,8 +91,8 @@ markdown_extensions:
 
 plugins:
   - search
-  - open-in-new-tab
   - mkdocs_pymdownx_material_extras
+
 extra_javascript:
   - assets/extra.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
