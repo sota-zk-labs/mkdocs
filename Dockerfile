@@ -1,4 +1,4 @@
-FROM python:3.9-alpine as builder
+FROM python:3.10-alpine as builder
 
 # Install system dependencies
 RUN apk update && \
@@ -8,6 +8,7 @@ RUN apk update && \
 WORKDIR /mkdocs/
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt --no-cache-dir
+COPY overrides /mkdocs/overrides
 COPY docs /mkdocs/docs
 COPY mkdocs.yml /mkdocs/mkdocs.yml
 COPY extra.js /mkdocs/docs/javascripts/extra.js

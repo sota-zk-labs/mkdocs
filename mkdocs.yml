@@ -1,7 +1,16 @@
 site_name: SotaZK Labs docs
+docs_dir: ./docs
+site_description: This is the docs for people learning ZKPs
+site_author: sota-zk-labs
+repo_url: https://github.com/sota-zk-labs/zkp-documents
 
 theme:
   name: material
+  custom_dir: overrides
+  include_search_page: true
+  font:
+    text: Inter
+    code: Source Code Pro
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
@@ -58,8 +67,6 @@ markdown_extensions:
       permalink_title: Link to this section
       toc_depth: 4
   - codehilite
-  - markdown_include.include:
-      base_path: docs
   - admonition
   - footnotes
   - def_list
@@ -89,9 +96,14 @@ markdown_extensions:
   - smarty
   - pymdownx.extra
 
+exclude_docs: |
+  english/*
+  index.md
+
 plugins:
   - search
   - mkdocs_pymdownx_material_extras
+  - callouts
 
 extra_javascript:
   - javascripts/extra.js
