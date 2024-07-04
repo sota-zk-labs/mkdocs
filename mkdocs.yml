@@ -3,6 +3,7 @@ docs_dir: ./docs
 site_description: This is the docs for people learning ZKPs
 site_author: sota-zk-labs
 repo_url: https://github.com/sota-zk-labs/zkp-documents
+site_url: https://docs.sotazk.org/
 
 theme:
   name: material
