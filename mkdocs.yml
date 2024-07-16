@@ -7,6 +7,8 @@ site_url: https://docs.sotazk.org/
 
 theme:
   name: material
+  favicon: images/favicon.png
+  logo: images/logo.png
   custom_dir: overrides
   include_search_page: true
   font:

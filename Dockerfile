@@ -12,6 +12,8 @@ COPY overrides /mkdocs/overrides
 COPY docs /mkdocs/docs
 COPY mkdocs.yml /mkdocs/mkdocs.yml
 COPY extra.js /mkdocs/docs/javascripts/extra.js
+COPY favicon.png /mkdocs/docs/images/favicon.png
+COPY logo.png /mkdocs/docs/images/logo.png
 RUN mkdocs build
 
 FROM bitnami/nginx:1.19
